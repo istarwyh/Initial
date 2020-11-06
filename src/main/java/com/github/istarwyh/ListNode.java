@@ -1,10 +1,10 @@
-package cc.mbin;
+package com.github.istarwyh;
 
 /**
- * @Description:ListNode
- * @author:wangyihui
- * @Date:2020-11-02 16:51
- * @version:1.0.0
+ * @Description: ListNode
+ * @author: YiHui
+ * @Date: 2020-11-02 16:51
+ * @version: 1.0.0
  */
 public class ListNode {
     public int val;

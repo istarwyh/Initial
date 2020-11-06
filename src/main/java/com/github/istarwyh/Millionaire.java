@@ -1,4 +1,4 @@
-package cc.mbin;
+package com.github.istarwyh;
 
 import java.util.Objects;
 
