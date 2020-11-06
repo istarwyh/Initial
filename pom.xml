@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>istarwyh.github.com</groupId>
 	<artifactId>Initial</artifactId>
-	<version>0.2.2</version>
+	<version>0.2.1</version>
 	<packaging>jar</packaging>
 
 	<name>Initial</name>
