@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.istarwyh</groupId>
 	<artifactId>Initial</artifactId>
-	<version>0.2.2</version>
+	<version>0.2.3</version>
 	<packaging>jar</packaging>
 
 	<name>Initial</name>
@@ -13,7 +13,7 @@
 		<developer>
 			<name>istarwyh</name>
 			<email>yihui.wang@pku.edu.cn</email>
-			<organization>istarwyh</organization>
+			<organization>pku</organization>
 			<organizationUrl>https://github.com/istarwyh</organizationUrl>
 		</developer>
 	</developers>
