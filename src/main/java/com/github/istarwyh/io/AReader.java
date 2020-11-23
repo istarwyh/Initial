@@ -1,4 +1,4 @@
-package com.github.istarwyh.IO;
+package com.github.istarwyh.io;
 
 import java.io.BufferedWriter;
 import java.io.Closeable;
