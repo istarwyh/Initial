@@ -2,7 +2,6 @@ package com.github.istarwyh.cache;
 
 import org.junit.jupiter.api.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class LruCacheTest {
 
     @BeforeEach
@@ -18,14 +17,14 @@ class LruCacheTest {
     @Test
     void testLRU() {
 
-        LruCache lruCache = new LruCache(5);
-        lruCache.put("001", "用户1信息");
-        lruCache.put("002", "用户2信息");
-        lruCache.put("003", "用户3信息");
-        lruCache.put("004", "用户4信息");
-        lruCache.put("005", "用户5信息");
-
         for( int i =0;i<10;i++){
+        LruCache lruCache = new LruCache(5);
+            lruCache.put("001", "用户1信息");
+            lruCache.put("002", "用户2信息");
+            lruCache.put("003", "用户3信息");
+            lruCache.put("004", "用户4信息");
+            lruCache.put("005", "用户5信息");
+
             String input = String.valueOf(i);
             switch (input) {
                 //调用get（001）方法，检验队首变为002，队尾变成001
@@ -41,6 +40,7 @@ class LruCacheTest {
                     System.out.println(lruCache.end.value);
                     break;
                 case "2":
+                    System.out.println("----2----");
                     //调用get（003）方法，检验队首为001，队尾变成003
                     System.out.println(lruCache.get("003"));
                     System.out.println(lruCache.head.value);

@@ -9,11 +9,11 @@ import java.util.Set;
  * @Author: YiHui
  * @Date: 2020-11-23 22:00
  */
-public class LruCacheByLHM<K,V> {
+public class LruCacheByLinkedHashMap<K,V> {
     private final int MAX_CACHE_SIZE;
     private final float DEFAULT_LOAD_FACTORY = 0.75f;
     public LinkedHashMap<K,V> lhm;
-    public LruCacheByLHM(int cacheSize){
+    public LruCacheByLinkedHashMap(int cacheSize){
         this.MAX_CACHE_SIZE = cacheSize;
         int capacity = (int)Math.ceil( MAX_CACHE_SIZE / DEFAULT_LOAD_FACTORY)+1;
         this.lhm = new LinkedHashMap<K,V>(capacity,DEFAULT_LOAD_FACTORY,true){

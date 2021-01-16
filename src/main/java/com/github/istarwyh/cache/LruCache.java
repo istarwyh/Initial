@@ -24,6 +24,7 @@ public class LruCache {
      * @param value 消息内容
      */
     public void put(String key,String value ){
+//        放之前先看缓存中有没有
         Node node = cache.get(key);
         if( node == null ){
             node = new Node(key, value);
@@ -47,18 +48,21 @@ public class LruCache {
 //            throw new NotFoundException("key没有对应的元素");
             return "-1";
         }else{
-
             moveNode2End(node);
             return node.value;
         }
     }
 
-    public void remove( String key){
+    public void remove( String key ){
         Node node = cache.get(key);
         removeNode(node);
         cache.remove(key);
     }
 
+    /**
+     * 只要是添加结点,它就是最近访问的应该在最安全的位置-尾部
+     * @param node
+     */
     private void addNode2End(Node node) {
 //        cache.size() == 0
         if( head == null){
@@ -73,6 +77,10 @@ public class LruCache {
         }
     }
 
+    /**
+     * 访问的同时,这个结点就要移到安全的位置-尾部
+     * @param node
+     */
     private void moveNode2End(Node node) {
         if( end != node ){
             removeNode(node);
@@ -112,14 +120,6 @@ public class LruCache {
         public Node(String key, String value){
             this.key = key;
             this.value = value;
-        }
-
-        public String getKey() {
-            return key;
-        }
-
-        public String getValue() {
-            return value;
         }
     }
 }
