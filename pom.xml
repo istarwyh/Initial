@@ -99,6 +99,7 @@
 					<encoding>${java.encoding}</encoding>
 				</configuration>
 			</plugin>
+<!--			If the relevant dependencies doesn't exist and the relevant plugin cannot be found-->
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
 				<executions>
