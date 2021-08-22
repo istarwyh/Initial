@@ -8,10 +8,10 @@ import java.util.HashMap;
  * @Date: 2020-11-23 21:10
  * @Version: ing
  */
-public class LruCache {
-    public Node head;
-    public Node end;
-    private final HashMap<String, Node> cache;
+public class LruCache<T> {
+    public Node<T> head;
+    public Node<T> end;
+    private final HashMap<String, Node<T>> cache;
     private final Integer capacity;
     public LruCache(int capacity){
         this.capacity = capacity;
@@ -23,11 +23,11 @@ public class LruCache {
      * @param key 消息标识
      * @param value 消息内容
      */
-    public void put(String key,String value ){
+    public void put(String key,T value ){
 //        放之前先看缓存中有没有
-        Node node = cache.get(key);
+        Node<T> node = cache.get(key);
         if( node == null ){
-            node = new Node(key, value);
+            node = new Node<T>(key, value);
             if( cache.size() >= capacity){
                 remove(head.key);
             }
@@ -42,11 +42,11 @@ public class LruCache {
         }
     }
 
-    public String get( String key) {
-        Node node = cache.get(key);
+    public T get( String key) {
+        Node<T> node = cache.get(key);
         if( node == null ){
 //            throw new NotFoundException("key没有对应的元素");
-            return "-1";
+            return null;
         }else{
             moveNode2End(node);
             return node.value;
@@ -54,16 +54,15 @@ public class LruCache {
     }
 
     public void remove( String key ){
-        Node node = cache.get(key);
+        Node<T> node = cache.get(key);
         removeNode(node);
         cache.remove(key);
     }
 
     /**
      * 只要是添加结点,它就是最近访问的应该在最安全的位置-尾部
-     * @param node
      */
-    private void addNode2End(Node node) {
+    private void addNode2End(Node<T> node) {
 //        cache.size() == 0
         if( head == null){
             head = end = node;
@@ -79,25 +78,24 @@ public class LruCache {
 
     /**
      * 访问的同时,这个结点就要移到安全的位置-尾部
-     * @param node
      */
-    private void moveNode2End(Node node) {
+    private void moveNode2End(Node<T> node) {
         if( end != node ){
             removeNode(node);
             addNode2End(node);
         }
     }
 
-    private void removeNode(Node node) {
+    private void removeNode(Node<T> node) {
         if( head == node){
-            Node tmpNode = head;
+            Node<T> tmpNode = head;
             head = head.next;
             if( head != null){
                 head.pre = null;
             }
             tmpNode.next = null;
         }else if( end == node){
-            Node tmpNode = end;
+            Node<T> tmpNode = end;
             end = end.pre;
             if( end != null ){
                 end.next = null;
@@ -112,14 +110,15 @@ public class LruCache {
     }
 
 
-    static class Node{
-        private Node pre;
-        private Node next;
+    static class Node<T>{
+        private Node<T> pre;
+        private Node<T> next;
         public final String key;
-        public String value;
-        public Node(String key, String value){
+        public T value;
+        public Node(String key, T value){
             this.key = key;
             this.value = value;
         }
+
     }
 }

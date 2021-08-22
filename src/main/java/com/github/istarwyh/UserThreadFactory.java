@@ -13,7 +13,7 @@ public class UserThreadFactory implements ThreadFactory {
     private final String namePrefix;
     private final AtomicInteger nextId = new AtomicInteger(1);
 
-    UserThreadFactory(String whatFeatureOfGroup) {
+    public UserThreadFactory(String whatFeatureOfGroup) {
         namePrefix = "istarwyh-" + whatFeatureOfGroup + "-utf-";
     }
 
