@@ -18,7 +18,7 @@ class LruCacheTest {
     void testLRU() {
 
         for( int i =0;i<10;i++){
-        LruCache lruCache = new LruCache(5);
+        LruCache<String> lruCache = new LruCache<String>(5);
             lruCache.put("001", "用户1信息");
             lruCache.put("002", "用户2信息");
             lruCache.put("003", "用户3信息");
