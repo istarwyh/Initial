@@ -45,11 +45,15 @@ public class ListNode {
         }
         ListNode head = new ListNode(arr[0]);
         ListNode curNode = head;
-        for( int i=1;i<arr.length;i++ ){
+        for(int i = 1; i< arr.length; i++ ){
             curNode.next = new ListNode(arr[i]);
             curNode = curNode.next;
         }
         return head;
+    }
+
+    public static ListNode createNodeList(int ...arr){
+        return createListNodeByArray(arr);
     }
 
 }
