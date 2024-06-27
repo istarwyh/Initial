@@ -28,7 +28,7 @@ public class UserThreadFactory implements ThreadFactory {
     @Override
     public Thread newThread(Runnable r) {
         String name = namePrefix + nextId.getAndIncrement();
-        Thread thread = new Thread(null, r, name, 0, false);
+        Thread thread = new Thread(r,name);
         System.out.println((thread.getName()));
         return thread;
     }

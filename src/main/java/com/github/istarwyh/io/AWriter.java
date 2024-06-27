@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
  * nextLine方法会读入一行新数据，同时舍弃tokenizer中的内容。next方法会返回下一个数据。nextXXX方法将next的数据包装成常见数据类型。
  */
 public class AWriter {
-    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private StringTokenizer tokenizer = new StringTokenizer("");
     private String innerNextLine() {
         try {

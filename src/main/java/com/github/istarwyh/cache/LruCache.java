@@ -1,6 +1,7 @@
 package com.github.istarwyh.cache;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description: LruCache
@@ -11,7 +12,7 @@ import java.util.HashMap;
 public class LruCache<T> {
     public Node<T> head;
     public Node<T> end;
-    private final HashMap<String, Node<T>> cache;
+    private final Map<String, Node<T>> cache;
     private final Integer capacity;
     public LruCache(int capacity){
         this.capacity = capacity;

@@ -15,7 +15,7 @@ import java.io.OutputStreamWriter;
  *  注意，程序结束前一定要调用Writer的close()方法来刷新缓冲区并关闭输出流
  */
 public class AReader implements Closeable {
-    private BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+    private final BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
     public void print(Object object) throws IOException {
         writer.write(object.toString());
     }
